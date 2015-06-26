@@ -1,4 +1,6 @@
-# ampertime
+# Ampertime
 A more sensible variation on Swatch Internet Time 
 
-Basically just Internet Time but based on UTC
+Basically the same but based on UTC
+
+Represented with a & as in &800 instead of @
