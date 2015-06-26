@@ -1,4 +1,4 @@
-/* clock.c: An Ampertime Clock
+/* clock.c: An ATtime Clock
  * Copyright (c) 2015 Jacob Adams
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,15 +20,15 @@
 #include <time.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "ampertime.h"
+#include "attime.h"
 
 int main ()
 {
-	int amper;
+	int at;
 	while (1)
 	{
-		amper = ampertime(NULL);
-		printf("&%d\n",amper);
+		at = attime(NULL);
+		printf("@%d\n",at);
 		sleep(1);
 	}
 	return 0;

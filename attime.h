@@ -1,4 +1,4 @@
-/* ampertime.c: Functions to convert to and from Ampertime
+/* attime.h: Functions to convert to and from ATtime
  * Copyright (c) 2015 Jacob Adams
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -17,36 +17,14 @@
  * SOFTWARE.
  */
 
-/*
- * Conversion from UTC = (UTCseconds + (UTCminutes * 60) + (UTChours * 3600)) / 86.4
- */
-
 #include <time.h>
-#include "ampertime.h"
 
-int ampertime(time_t* timer)
-{
-	time_t reftime = time(timer);
-	struct tm* tm;
-	tm = gmtime(&reftime);
-	return (tm->tm_sec + (tm->tm_min * 60) + (tm->tm_hour * 3600))/86.4;
-}
+/* Convert time_t to ATtime */
+int attime(time_t* timer);
 
-struct tm ampertime2std(int amper)
-{
-	int totsec = amper*86.4;
-	/* Based mostly on http://programmingcentre.blogspot.com/2013/04/c-program-to-convert-time-in-seconds-to.html */
-	int hr = totsec/3600;
-	int t = totsec%3600;
-	int min = t/60;
-	int sec = t%60;
-	struct tm tm;
-	tm.tm_sec = sec;
-	tm.tm_min = min;
-	tm.tm_hour = hr;
-	return tm;
-}
-int ampertime2seconds(int amper)
-{
-	return amper*86.4;
-}
+/* Convert ATtime to struct tm */
+struct tm attime2utc(int at);
+
+/* Convert ampertime to seconds */
+int attime2seconds(int at);
+

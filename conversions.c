@@ -1,4 +1,4 @@
-/* clock.c: CLI to convert to and from Ampertime
+/* clock.c: CLI to convert to and from ATtime
  * Copyright (c) 2015 Jacob Adams
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -18,14 +18,14 @@
  */
 
 #include <time.h>
-#include "ampertime.h"
+#include "attime.h"
 #include <stdio.h>
 
-char * menu = "+----------------------------------------+\n"
-	      "| [0] Get Current Time in Ampertime      |\n"
-	      "| [1] Convert Ampertime to Seconds       |\n"
-	      "| [2] Convert Ampertime to Standard Time |\n"
-	      "+----------------------------------------+\n";
+char * menu = "+--------------------------------+\n"
+	      "| [0] Get Current Time in ATtime |\n"
+	      "| [1] Convert ATtime to Seconds  |\n"
+	      "| [2] Convert ATtime to UTC      |\n"
+	      "+--------------------------------+\n";
 
 int main ()
 {
@@ -41,17 +41,17 @@ int main ()
 		switch(ch)
 		{
 			case '0':
-				printf("&%d\n",ampertime(NULL));
+				printf("@%d\n",attime(NULL));
 				break;
 			case '1':
-				printf("Input Ampertime: ");
+				printf("Input ATtime: ");
 				scanf("%d",&timer);
-				printf("%d\n",ampertime2seconds(timer));
+				printf("%d\n",attime2seconds(timer));
 				break;
 			case '2':
-				printf("Input Ampertime: ");
+				printf("Input ATtime: ");
 				scanf("%d",&timer);
-				tm = ampertime2std(timer);
+				tm = attime2utc(timer);
 				printf("%d:%d:%d\n",tm.tm_hour,tm.tm_min,tm.tm_sec);
 				break;
 			default:
