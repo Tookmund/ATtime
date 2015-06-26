@@ -32,10 +32,12 @@ int main ()
 	int timer;
 	struct tm tm;
 	int ch = 1;
+	printf(menu);
 	while (ch != EOF)
 	{
-		printf(menu);
 		ch = getchar();
+		if (ch == '\n')
+			continue;
 		switch(ch)
 		{
 			case '0':
@@ -55,6 +57,8 @@ int main ()
 			default:
 				break;
 		}
+		timer = 0;
+		printf(menu);
 	}
 	return 0;
 }
