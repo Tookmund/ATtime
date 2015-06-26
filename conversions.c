@@ -23,7 +23,7 @@
 
 char * menu = "+----------------------------------------+\n"
 	      "| [0] Get Current Time in Ampertime      |\n"
-	      "| [1] Convert Ampertime to Unix TIme     |\n"
+	      "| [1] Convert Ampertime to Seconds       |\n"
 	      "| [2] Convert Ampertime to Standard Time |\n"
 	      "+----------------------------------------+\n";
 
