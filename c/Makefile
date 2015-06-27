@@ -29,3 +29,7 @@ clock: ${FILES} clock.c
 	${CC} ${FLAGS} ${FILES} clock.c -o clock
 
 
+.PHONY: clean
+
+clean:
+	rm -f conversions clock
