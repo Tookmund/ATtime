@@ -1,3 +1,4 @@
+### Status: Incomplete
 # ATtime
 A more sensible variation on Swatch Internet Time 
 
